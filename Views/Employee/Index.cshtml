@@ -1,0 +1,19 @@
+﻿@model List<SuperMarket.Models.employeeModel>
+
+<table class="table table-stripped" >
+    <tr>
+        <th>Employee ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Action</th>
+    </tr>
+    @foreach(var employee in Model)
+    {
+        <tr>
+            <td>@employee.emp_id</td>
+            <td>@employee.name</td>
+            <td>@employee.address</td>
+            <td>Edit | Delete | <a asp-controller="Employee" asp-action="Details" asp-route-id="@employee.emp_id">View</a></td>
+        </tr>
+    }
+</table>

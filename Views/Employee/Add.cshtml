@@ -1,0 +1,9 @@
+﻿@model SuperMarket.Models.employeeModel
+
+    <form asp-action="Add" method="post">
+        <label>Employee's Name</label> <br />
+        <input asp-for="name" placeholder="Enter name here"/> <br /> <br />
+        <label>Address</label> <br />
+        <input asp-for="address" placeholder="Enter address here"/> <br /><br />
+        <input type="submit" value="Submit" />
+    </form>

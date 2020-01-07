@@ -1,0 +1,19 @@
+﻿@model List<SuperMarket.Models.stockModel>
+
+<table class="table table-stripped" >
+    <tr>
+        <th>Stock ID</th>
+        <th>Cost price</th>
+        <th>Marked price</th>
+        <th>Action</th>
+    </tr>
+    @foreach(var stock in Model)
+    {
+        <tr>
+            <td>@stock.stock_id</td>
+            <td>@stock.cost_price</td>
+            <td>@stock.marked_price</td>
+            <td><a asp-controller="Stock" asp-route-id="@stock.stock_id" asp-action="Details">View</a></td>
+        </tr>
+    }
+</table>
