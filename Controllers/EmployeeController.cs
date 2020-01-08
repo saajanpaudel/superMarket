@@ -27,9 +27,23 @@ namespace SuperMarket.Controllers
             employeeModel employees = dbContext.employee.Find(id);
             return View(employees);
         }
+
+        [HttpGet]
         public IActionResult Add()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Add(employeeModel newemployee)
+        {
+            if(ModelState.IsValid)
+            {
+            dbContext.employee.Add(newemployee);
+            dbContext.SaveChanges();
+            return RedirectToAction("Index");
+            }
+            return View(newemployee);
         }
     }
 }

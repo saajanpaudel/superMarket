@@ -2,8 +2,10 @@
 
     <form asp-action="Add" method="post">
         <label>Employee's Name</label> <br />
-        <input asp-for="name" placeholder="Enter name here"/> <br /> <br />
+        <input asp-for="name" placeholder="Enter name here"/> <br />
+        <span asp-validation-for="name" class="text-danger"></span> <br /> <br />
         <label>Address</label> <br />
-        <input asp-for="address" placeholder="Enter address here"/> <br /><br />
+        <input asp-for="address" placeholder="Enter address here"/> <br />
+        <span asp-validation-for="address" class="text-danger"></span> <br />
         <input type="submit" value="Submit" />
     </form>
