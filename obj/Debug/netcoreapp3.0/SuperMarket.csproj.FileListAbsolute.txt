@@ -142,3 +142,4 @@
 /Users/saajanpaudel/VS_Projects/SuperMarket/SuperMarket/obj/Debug/netcoreapp3.0/Razor/Views/Employee/Details.cshtml.g.cs
 /Users/saajanpaudel/VS_Projects/SuperMarket/SuperMarket/obj/Debug/netcoreapp3.0/Razor/Views/Stock/Details.cshtml.g.cs
 /Users/saajanpaudel/VS_Projects/SuperMarket/SuperMarket/obj/Debug/netcoreapp3.0/Razor/Views/Employee/Add.cshtml.g.cs
+/Users/saajanpaudel/VS_Projects/SuperMarket/SuperMarket/obj/Debug/netcoreapp3.0/Razor/Views/Employee/Edit.cshtml.g.cs

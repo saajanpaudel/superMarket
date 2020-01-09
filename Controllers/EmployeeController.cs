@@ -45,5 +45,24 @@ namespace SuperMarket.Controllers
             }
             return View(newemployee);
         }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            employeeModel employees = dbContext.employee.Find(id);
+            return View(employees);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(employeeModel editemployee)
+        {
+            if (ModelState.IsValid)
+            {
+                dbContext.employee.Update(editemployee);
+                dbContext.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(editemployee);
+        }
     }
 }
