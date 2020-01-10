@@ -35,7 +35,7 @@ namespace SuperMarket.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(employeeModel newemployee)
+        public IActionResult Add([FromForm]employeeModel newemployee)
         {
             if(ModelState.IsValid)
             {
@@ -54,7 +54,7 @@ namespace SuperMarket.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(employeeModel editemployee)
+        public IActionResult Edit([FromForm]employeeModel editemployee)
         {
             if (ModelState.IsValid)
             {
@@ -63,6 +63,14 @@ namespace SuperMarket.Controllers
                 return RedirectToAction("Index");
             }
             return View(editemployee);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            employeeModel employees = dbContext.employee.Find(id);
+            dbContext.employee.Remove(employees);
+            dbContext.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
