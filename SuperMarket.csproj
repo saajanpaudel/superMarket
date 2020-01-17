@@ -11,9 +11,15 @@
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Views\Employee\" />
-    <Folder Include="Views\Stock\" />
+    <Folder Include="wwwroot\imgs\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\fontawesome\less\_screen-reader.less" />
+    <Content Remove="wwwroot\fontawesome\js\all.min.js" />
+    <Content Remove="wwwroot\fontawesome\js\all.js" />
+    <Content Remove="wwwroot\fontawesome\js\regular.js" />
   </ItemGroup>
 </Project>

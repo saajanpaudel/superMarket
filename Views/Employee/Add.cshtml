@@ -1,11 +1,14 @@
 ﻿@model SuperMarket.Models.employeeModel
 
-    <form asp-action="Add" method="post">
+    <form asp-action="Add" method="post" enctype="multipart/form-data">
         <label>Employee's Name</label> <br />
         <input asp-for="name" placeholder="Enter name here"/> <br />
         <span asp-validation-for="name" class="text-danger"></span> <br /> <br />
         <label>Address</label> <br />
         <input asp-for="address" placeholder="Enter address here"/> <br />
-        <span asp-validation-for="address" class="text-danger"></span> <br />
+        <span asp-validation-for="address" class="text-danger"></span> <br /> <br />
+        <label>Photo</label> <br />
+        <input asp-for="UploadImage" type="file"/><br />
+        <span asp-validation-for="UploadImage" class="text-danger"></span> <br /> <br />
         <input type="submit" value="Add" />
     </form>

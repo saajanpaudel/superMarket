@@ -1,19 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using SuperMarket.Data;
 using SuperMarket.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace SuperMarket.Controllers
 {
     public class EmployeeController:Controller
     {
         private superMarketDbContext dbContext;
-        public EmployeeController(superMarketDbContext _dbcontext)
+        IHostingEnvironment _env;
+
+        public EmployeeController(superMarketDbContext _dbcontext, IHostingEnvironment env)
         {
             dbContext = _dbcontext;
+            _env = env;
         }
         public IActionResult Index()
         {
@@ -37,7 +40,17 @@ namespace SuperMarket.Controllers
         [HttpPost]
         public IActionResult Add([FromForm]employeeModel newemployee)
         {
-            if(ModelState.IsValid)
+            string rootPath = _env.WebRootPath;
+            string fileName = newemployee.UploadImage.FileName;
+            string uploadPath = rootPath + "/imgs/" + fileName;
+            newemployee.photo = fileName;
+
+            using (var filestream = new FileStream(uploadPath, FileMode.Create))
+            {
+                newemployee.UploadImage.CopyTo(filestream);
+            }
+
+            if (ModelState.IsValid)
             {
             dbContext.employee.Add(newemployee);
             dbContext.SaveChanges();
