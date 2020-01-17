@@ -13,7 +13,9 @@ namespace SuperMarket.Models
     {
             [Key]
             public int emp_id { get; set; }
+            [Required]
             public string name { get; set; }
+            [Required]
             public string address { get; set; }
             public string email { get; set; }
             public string photo { get; set; }
