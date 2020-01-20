@@ -5,15 +5,17 @@ using SuperMarket.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using System;
 
 namespace SuperMarket.Controllers
 {
     public class EmployeeController:Controller
     {
         private superMarketDbContext dbContext;
-        IHostingEnvironment _env;
+        IWebHostEnvironment _env;
+        //IHostingEnvironment _env;
 
-        public EmployeeController(superMarketDbContext _dbcontext, IHostingEnvironment env)
+        public EmployeeController(superMarketDbContext _dbcontext, IWebHostEnvironment env)
         {
             dbContext = _dbcontext;
             _env = env;
@@ -41,7 +43,8 @@ namespace SuperMarket.Controllers
         public IActionResult Add([FromForm]employeeModel newemployee)
         {
             string rootPath = _env.WebRootPath;
-            string fileName = newemployee.UploadImage.FileName;
+            string uploadName = newemployee.UploadImage.FileName;
+            string fileName = Guid.NewGuid().ToString()+uploadName;
             string uploadPath = rootPath + "/imgs/" + fileName;
             newemployee.photo = fileName;
 
