@@ -22,8 +22,9 @@ namespace SuperMarket.Controllers
         }
         public IActionResult Index()
         {
-            List<employeeModel> employees = dbContext.employee.ToList();
-            
+            //List<employeeModel> employees = dbContext.employee.Where(a=>a.name == "fdsaf" && a.address== "fdasf").ToList();
+            //List<employeeModel> employees = dbContext.employee.OrderByDescending(a => a.name).ToList();
+            List<employeeModel> employees = dbContext.employee.OrderBy(a => a.emp_id).ToList();
             return View(employees);
         }
 
