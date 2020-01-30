@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using System;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace SuperMarket.Controllers
 {
@@ -37,6 +38,7 @@ namespace SuperMarket.Controllers
         [HttpGet]
         public IActionResult Add()
         {
+            ViewBag.eLvlList = new SelectList(dbContext.empLevel, "lvl_id", "levels");
             return View();
         }
 

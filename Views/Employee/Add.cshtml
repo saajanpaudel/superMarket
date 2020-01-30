@@ -4,11 +4,23 @@
         <label>Employee's Name</label> <br />
         <input asp-for="name" placeholder="Enter name here"/> <br />
         <span asp-validation-for="name" class="text-danger"></span> <br /> <br />
+
         <label>Address</label> <br />
         <input asp-for="address" placeholder="Enter address here"/> <br />
         <span asp-validation-for="address" class="text-danger"></span> <br /> <br />
+
+        <label>Salary</label> <br />
+        <input asp-for="salary" placeholder="Enter salary here"/> <br />
+        <span asp-validation-for="salary" class="text-danger"></span> <br /> <br />
+
+        <label>Level</label> <br />
+        <select required asp-for="emp_lvl" asp-items="ViewBag.eLvlList" class="form-controller">
+            <option>---Select level---</option>
+        </select> <span asp-validation-for="emp_lvl" class="text-danger"></span> <br /> <br /> <br />
+
         <label>Photo</label> <br />
-        <input asp-for="UploadImage" type="file"/><br />
+        <input required asp-for="UploadImage" type="file"/><br />
         <span asp-validation-for="UploadImage" class="text-danger"></span> <br /> <br />
+
         <input type="submit" value="Add" />
     </form>

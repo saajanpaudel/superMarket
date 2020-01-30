@@ -11,5 +11,6 @@ namespace SuperMarket.Data
 
         public DbSet<employeeModel> employee { get; set; }
         public DbSet<stockModel> stocks { get; set; }
+        public DbSet<eLevelModel> empLevel { get; set; }
     }
 }
