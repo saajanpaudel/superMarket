@@ -23,5 +23,7 @@ namespace SuperMarket.Models
             public string photo { get; set; }
             [NotMapped]
             public IFormFile UploadImage { get; set; }
+            [NotMapped]
+            public string levels { get; set; }
     }
 }

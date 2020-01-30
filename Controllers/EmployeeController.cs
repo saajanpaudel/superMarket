@@ -25,7 +25,20 @@ namespace SuperMarket.Controllers
         {
             //List<employeeModel> employees = dbContext.employee.Where(a=>a.name == "fdsaf" && a.address== "fdasf").ToList();
             //List<employeeModel> employees = dbContext.employee.OrderByDescending(a => a.name).ToList();
-            List<employeeModel> employees = dbContext.employee.OrderBy(a => a.emp_id).ToList();
+            //List<employeeModel> employees = dbContext.employee.OrderBy(a => a.emp_id).ToList();
+            var query = from e in dbContext.employee
+                        join l in dbContext.empLevel
+                        on e.emp_lvl equals l.lvl_id
+                        select new employeeModel
+                        {
+                            emp_id = e.emp_id,
+                            name = e.name,
+                            address = e.address,
+                            salary = e.salary,
+                            levels = l.levels,
+                            photo = e.photo
+                        };
+            List<employeeModel> employees = query.ToList();
             return View(employees);
         }
 
