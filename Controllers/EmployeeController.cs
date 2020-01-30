@@ -28,7 +28,8 @@ namespace SuperMarket.Controllers
             //List<employeeModel> employees = dbContext.employee.OrderBy(a => a.emp_id).ToList();
             var query = from e in dbContext.employee
                         join l in dbContext.empLevel
-                        on e.emp_lvl equals l.lvl_id
+                        on e.emp_lvl equals l.lvl_id into level
+                        from l in level.DefaultIfEmpty()
                         select new employeeModel
                         {
                             emp_id = e.emp_id,
